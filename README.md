@@ -238,13 +238,13 @@ Pair 4: (  C,    δ     )    ← -vk_x, delta         [SAME G2 as pair 3]
 ```
 
 // Pairs 1 & 2 cancel
-Both use the same G2 point (B = β). The G1 points are `A` and `-A` (verified: their y-coordinates sum to the field prime `p`). By bilinearity:
+Both use the same G2 point (B = β). The G1 points are `A` and `-A` (verified: their y-coordinates sum to the field prime `p`) by bilinearity
 ```
 e(-A, B) · e(A, B) = e(O, B) = 1
 ```
 
 // Pairs 3 & 4 cancel
-Both use the same G2 point (γ = δ = G2 generator). The G1 points are `vk_x` and `C = -vk_x` (verified: y-coordinates sum to `p`). By bilinearity:
+Both use the same G2 point (γ = δ = G2 generator). The G1 points are `vk_x` and `C = -vk_x` (verified: y-coordinates sum to `p`) by bilinearity
 ```
 e(vk_x, γ) · e(-vk_x, γ) = e(O, γ) = 1
 ```
