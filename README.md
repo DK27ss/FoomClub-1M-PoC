@@ -132,12 +132,12 @@ For any chosen set of public inputs `(root, nullifier, denomination, recipient, 
 
 1. **Read `α`, `β`, `IC[0..n]` from the verification key** (public on-chain)
 2. **Set `A = α`** and **`B = β`**
-3. **Compute `vk_x`:**
+3. **Compute `vk_x`**
    ```
    vk_x = IC[0] + root · IC[1] + nullifier · IC[2] + denomination · IC[3] + recipient · IC[4]
    ```
    Using the EVM `ecMul` (precompile `0x07`) and `ecAdd` (precompile `0x06`).
-4. **Set `C = -vk_x`:** negate the G1 point by flipping the y-coordinate
+4. **Set `C = -vk_x`** negate the G1 point by flipping the y-coordinate
    ```
    C = (vk_x.x,  p - vk_x.y)
    ```
