@@ -20,7 +20,9 @@
 
 The Foom protocol, a lottery/gambling dApp using ZK proofs (Groth16) for withdrawals, was drained on **both Base and Ethereum mainnet** due to a fatal cryptographic flaw in the ZK Verifier contract, the verification key's `delta` and `gamma` parameters were both set to the BN254 G2 generator point, collapsing the Groth16 pairing equation into a tautology, this allowed anyone to forge valid proofs for arbitrary public inputs — no knowledge of any private witness required.
 
-The entire operation on Base was a **whitehat rescue** led by [**@duha_real**](https://x.com/duha_real), who identified the vulnerability and drained the funds to secure them before a malicious actor could. The Ethereum mainnet operation was conducted independently by a separate whitehat ([`whitehat-rescue.eth`](https://etherscan.io/address/0x46c403e3DcAF219D9D4De167cCc4e0dd8E81Eb72)), not by @duha_real.
+The entire operation on Base was a **whitehat rescue** led by [**@duha_real**](https://x.com/duha_real), who identified the vulnerability and drained the funds to secure them before a malicious actor could. 
+
+The Ethereum mainnet operation was conducted independently by a separate whitehat ([`whitehat-rescue.eth`](https://etherscan.io/address/0x46c403e3DcAF219D9D4De167cCc4e0dd8E81Eb72)), not by @duha_real.
 
 ---
 
