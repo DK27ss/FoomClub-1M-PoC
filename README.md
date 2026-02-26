@@ -140,6 +140,8 @@ For any chosen set of public inputs `(root, nullifier, denomination, recipient, 
    where `p = 21888242871839275222246405745257275088696311157297823662689037894645226208583` is the BN254 field prime.
 5. **Call `collect(A, B, C, root, nullifier, recipient, ...)`** — the proof passes verification.
 
+<img width="1490" height="205" alt="image" src="https://github.com/user-attachments/assets/6d6f4225-60ef-4126-a68a-ec1742f71c3d" />
+
 ---
 
 ## Exec Flow
@@ -166,6 +168,8 @@ For any chosen set of public inputs `(root, nullifier, denomination, recipient, 
                     │  ► token.transfer(recipient, payout)    │
                     └─────────────────────────────────────────┘
 ```
+
+<img width="1479" height="143" alt="image" src="https://github.com/user-attachments/assets/5e84b7c7-bb7d-44d6-9169-7f39c6b38e2b" />
 
 // Base mainnet
 
