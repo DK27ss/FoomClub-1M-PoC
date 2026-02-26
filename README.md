@@ -18,7 +18,9 @@
 
 ## Summary
 
-The Foom protocol, a lottery/gambling dApp using ZK proofs (Groth16) for withdrawals, was drained on **both Base and Ethereum mainnet** due to a fatal cryptographic flaw in the ZK Verifier contract, the verification key's `delta` and `gamma` parameters were both set to the BN254 G2 generator point, collapsing the Groth16 pairing equation into a tautology, this allowed the attacker to forge valid proofs for arbitrary public inputs — no knowledge of any private witness required.
+The Foom protocol, a lottery/gambling dApp using ZK proofs (Groth16) for withdrawals, was drained on **both Base and Ethereum mainnet** due to a fatal cryptographic flaw in the ZK Verifier contract, the verification key's `delta` and `gamma` parameters were both set to the BN254 G2 generator point, collapsing the Groth16 pairing equation into a tautology, this allowed anyone to forge valid proofs for arbitrary public inputs — no knowledge of any private witness required.
+
+The entire operation on Base was a **whitehat rescue** led by [**@duha_real**](https://x.com/duha_real), who identified the vulnerability and drained the funds to secure them before a malicious actor could. The Ethereum mainnet operation was conducted independently by a separate whitehat ([`whitehat-rescue.eth`](https://etherscan.io/address/0x46c403e3DcAF219D9D4De167cCc4e0dd8E81Eb72)), not by @duha_real.
 
 ---
 
@@ -130,11 +132,11 @@ function collect(
 
 ## Exploit
 
-Exploit TX Base: https://app.blocksec.com/phalcon/explorer/tx/base/0xa88317a105155b464118431ce1073d272d8b43e87aba528a24b62075e48d929d
+Whitehat TX Base ([@duha_real](https://x.com/duha_real)): https://app.blocksec.com/phalcon/explorer/tx/base/0xa88317a105155b464118431ce1073d272d8b43e87aba528a24b62075e48d929d
 
-Exploit TX ETH: https://app.blocksec.com/phalcon/explorer/tx/eth/0xce20448233f5ea6b6d7209cc40b4dc27b65e07728f2cbbfeb29fc0814e275e48
+Whitehat TX ETH ([whitehat-rescue.eth](https://etherscan.io/address/0x46c403e3DcAF219D9D4De167cCc4e0dd8E81Eb72)): https://app.blocksec.com/phalcon/explorer/tx/eth/0xce20448233f5ea6b6d7209cc40b4dc27b65e07728f2cbbfeb29fc0814e275e48
 
-> **Note:** The ETH mainnet transaction (`0xce20448...`) traced in `rescue_trace_eth.txt` was a **whitehat rescue operation** executed by [`whitehat-rescue.eth`](https://etherscan.io/address/0x46c403e3DcAF219D9D4De167cCc4e0dd8E81Eb72), the same vulnerability was exploited using the identical technique (forged Groth16 proofs with `C = -vk_x`), but the funds were secured by the whitehat rather than stolen by a malicious actor, the Base transaction was the original malicious exploit.
+> **Note:** Both transactions are **whitehat rescue operations**. The Base operation was led by [@duha_real](https://x.com/duha_real), who identified the vulnerability and drained the funds to secure them. The ETH mainnet operation (`0xce20448...`) was executed independently by [`whitehat-rescue.eth`](https://etherscan.io/address/0x46c403e3DcAF219D9D4De167cCc4e0dd8E81Eb72). Both used the identical technique (forged Groth16 proofs with `C = -vk_x`).
 
 <img width="627" height="389" alt="image" src="https://github.com/user-attachments/assets/f14c08e4-85ac-49f9-8982-b7fb5eb685d5" />
 
@@ -205,7 +207,7 @@ For any chosen set of public inputs `(root, nullifier, denomination, recipient, 
 
 ```
 ┌──────────────┐     deploy       ┌────────────────────┐
-│  Attacker    │ ──────────────►  │  Exploit Contract  │
+│  Whitehat    │ ──────────────►  │  Exploit Contract  │
 │  EOA         │                  │  (constructor)     │
 └──────────────┘                  └──────┬─────────────┘
                                          │
@@ -228,11 +230,11 @@ For any chosen set of public inputs `(root, nullifier, denomination, recipient, 
 
 <img width="1479" height="143" alt="image" src="https://github.com/user-attachments/assets/5e84b7c7-bb7d-44d6-9169-7f39c6b38e2b" />
 
-// Base mainnet
+// Base mainnet — whitehat by [@duha_real](https://x.com/duha_real)
 
 | Field | Value |
 |-------|-------|
-| Attacker contract | `0x005299B37703511B35D851e17dd8D4615e8A2C9B` |
+| Whitehat contract | `0x005299B37703511B35D851e17dd8D4615e8A2C9B` |
 | Recipient | `0x73f55A95D6959D95B3f3f11dDd268ec502dAB1Ea` |
 | Token | `0x02300aC24838570012027E0A90D3FEcCEF3c51d2` |
 | Iterations | 10 |
@@ -251,11 +253,11 @@ For any chosen set of public inputs `(root, nullifier, denomination, recipient, 
 >| ... | ... | ... (halving) |
 >| 10 | 3735879689 | 1.057 × 10²⁷ |
 
-// Ethereum mainnet
+// Ethereum mainnet — whitehat by [whitehat-rescue.eth](https://etherscan.io/address/0x46c403e3DcAF219D9D4De167cCc4e0dd8E81Eb72)
 
 | Field | Value |
 |-------|-------|
-| Attacker contract | `0x256a5D6852Fa5B3C55D3b132e3669A0bdE42e22c` |
+| Whitehat contract | `0x256a5D6852Fa5B3C55D3b132e3669A0bdE42e22c` |
 | Recipient | `0x46c403e3DcAF219D9D4De167cCc4e0dd8E81Eb72` |
 | Token | `0xd0D56273290D339aaF1417D9bfa1bb8cFe8A0933` |
 | Iterations | 30 |
@@ -275,7 +277,7 @@ For any chosen set of public inputs `(root, nullifier, denomination, recipient, 
 >| ... | ... | ... (halving) |
 >| 30 | 99999990029 | 5.221 × 10²² |
 
-*The ETH lottery balance reached **0** after 30 iterations (confirmed by a `balanceOf` check at the end of the attacker constructor)*
+*The ETH lottery balance reached **0** after 30 iterations (confirmed by a `balanceOf` check at the end of the whitehat contract constructor)*
 
 ---
 
