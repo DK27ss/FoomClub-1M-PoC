@@ -186,17 +186,17 @@ For any chosen set of public inputs `(root, nullifier, denomination, recipient, 
 | Nullifiers | `3735879680` → `3735879689` |
 | Gas | 3,347,703 |
 
-**Drain sequence:**
-
-| # | Nullifier | Amount Drained |
-|---|-----------|----------------|
-| 1 | 3735879680 | 4.047 × 10³⁰ |
-| 2 | 3735879681 | 2.707 × 10²⁹ |
-| 3 | 3735879682 | 1.353 × 10²⁹ |
-| 4 | 3735879683 | 6.767 × 10²⁸ |
-| 5 | 3735879684 | 3.383 × 10²⁸ |
-| ... | ... | ... (halving) |
-| 10 | 3735879689 | 1.057 × 10²⁷ |
+>**Drain sequence**
+>
+>| # | Nullifier | Amount Drained |
+>|---|-----------|----------------|
+>| 1 | 3735879680 | 4.047 × 10³⁰ |
+>| 2 | 3735879681 | 2.707 × 10²⁹ |
+>| 3 | 3735879682 | 1.353 × 10²⁹ |
+>| 4 | 3735879683 | 6.767 × 10²⁸ |
+>| 5 | 3735879684 | 3.383 × 10²⁸ |
+>| ... | ... | ... (halving) |
+>| 10 | 3735879689 | 1.057 × 10²⁷ |
 
 // Ethereum mainnet
 
@@ -209,20 +209,20 @@ For any chosen set of public inputs `(root, nullifier, denomination, recipient, 
 | Nullifiers | `99999990000` → `99999990029` |
 | Gas | 8,408,402 |
 
-**Drain sequence:**
+>**Drain sequence**
+>
+>| # | Nullifier | Amount Drained |
+>|---|-----------|----------------|
+>| 1 | 99999990000 | 4.047 × 10³⁰ |
+>| 2 | 99999990001 | 4.047 × 10³⁰ |
+>| 3 | 99999990002 | 4.047 × 10³⁰ |
+>| 4 | 99999990003 | 4.047 × 10³⁰ |
+>| 5 | 99999990004 | 1.752 × 10³⁰ |
+>| 6 | 99999990005 | 8.760 × 10²⁹ |
+>| ... | ... | ... (halving) |
+>| 30 | 99999990029 | 5.221 × 10²² |
 
-| # | Nullifier | Amount Drained |
-|---|-----------|----------------|
-| 1 | 99999990000 | 4.047 × 10³⁰ |
-| 2 | 99999990001 | 4.047 × 10³⁰ |
-| 3 | 99999990002 | 4.047 × 10³⁰ |
-| 4 | 99999990003 | 4.047 × 10³⁰ |
-| 5 | 99999990004 | 1.752 × 10³⁰ |
-| 6 | 99999990005 | 8.760 × 10²⁹ |
-| ... | ... | ... (halving) |
-| 30 | 99999990029 | 5.221 × 10²² |
-
-The ETH lottery balance reached **0** after 30 iterations (confirmed by a `balanceOf` check at the end of the attacker constructor).
+*The ETH lottery balance reached **0** after 30 iterations (confirmed by a `balanceOf` check at the end of the attacker constructor)*
 
 ---
 
@@ -313,10 +313,10 @@ function _forgeAndCollect(address lottery, uint256 root, uint256 nullifier, addr
 
 <img width="683" height="323" alt="image" src="https://github.com/user-attachments/assets/3b60cdbd-f120-47ea-8a80-749d0b79a49b" />
 
-| Chain | Before | After | Stolen | Drain % |
-|-------|--------|-------|--------|---------|
-| **Base** | 4.589 × 10³⁰ | 1.057 × 10²⁷ | 4.588 × 10³⁰ | **99.97%** |
-| **ETH** | 1.969 × 10³¹ | 5.221 × 10²² | 1.969 × 10³¹ | **99.99%** |
+>| Chain | Before | After | Stolen | Drain % |
+>|-------|--------|-------|--------|---------|
+>| **Base** | 4.589 × 10³⁰ | 1.057 × 10²⁷ | 4.588 × 10³⁰ | **99.97%** |
+>| **ETH** | 1.969 × 10³¹ | 5.221 × 10²² | 1.969 × 10³¹ | **99.99%** |
 
 ---
 
