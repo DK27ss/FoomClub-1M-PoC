@@ -167,7 +167,7 @@ For any chosen set of public inputs `(root, nullifier, denomination, recipient, 
                     └─────────────────────────────────────────┘
 ```
 
-// BSC mainnet
+// Base mainnet
 
 | Field | Value |
 |-------|-------|
@@ -300,6 +300,10 @@ function _forgeAndCollect(address lottery, uint256 root, uint256 nullifier, addr
   Drain percentage (bps):       9999
 ============================================
 ```
+
+<img width="680" height="321" alt="image" src="https://github.com/user-attachments/assets/4d8a95e1-25d6-40a5-a3a9-afa611be2f7b" />
+
+<img width="683" height="323" alt="image" src="https://github.com/user-attachments/assets/3b60cdbd-f120-47ea-8a80-749d0b79a49b" />
 
 | Chain | Before | After | Stolen | Drain % |
 |-------|--------|-------|--------|---------|
