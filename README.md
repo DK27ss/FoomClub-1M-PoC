@@ -385,3 +385,11 @@ function _forgeAndCollect(address lottery, uint256 root, uint256 nullifier, addr
 - Base Verifier: [`0x02c30D32A92a3C338bc43b78933D293dED4f68C6`](https://basescan.org/address/0x02c30D32A92a3C338bc43b78933D293dED4f68C6)
 - ETH Verifier: [`0xc043865fb4D542E2bc5ed5Ed9A2F0939965671A6`](https://etherscan.io/address/0xc043865fb4D542E2bc5ed5Ed9A2F0939965671A6)
 
+>
+>Company : https://blockraider.xyz/
+>
+>Community : https://discord.gg/Vqqt7jyRr7
+>
+>Disclosure : https://t.me/blockraider_alerts_bot
+
+<img width="161" height="51" alt="blockraider" src="https://github.com/user-attachments/assets/dc86222a-b5fb-49e8-9a9d-350973b7521d" />
